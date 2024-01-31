@@ -68,11 +68,3 @@ class MainPage(BasePage):
     def open_card(self, name:str=None, price:str=None, description:str=None):
         card = self.card(name, price, description)
         card.find_element(By.CSS_SELECTOR, ".card-title a").click()
-
-
-browser = webdriver.Chrome()
-mainpage = MainPage(browser)
-mainpage.card(name="Nexus")
-
-
-
