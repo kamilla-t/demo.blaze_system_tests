@@ -11,4 +11,4 @@ class BasePage():
     @property
     def alert(self):
         WebDriverWait(self.browser, 5).until(EC.alert_is_present())
-        return self.browser.switch_to_alert()
+        return self.browser.switch_to.alert

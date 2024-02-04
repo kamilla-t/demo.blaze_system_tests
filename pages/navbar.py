@@ -1,8 +1,13 @@
+from pages.about_us import AboutUs
 from pages.base_page import BasePage
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from pages.contact_page import ContactPage
+from pages.login_page import LoginPage
+from pages.sign_up import SignUpPage
 
 class Navbar(BasePage):
 
@@ -16,8 +21,8 @@ class Navbar(BasePage):
 
     def open_contact(self):
         self.contact_button.click()
-        WebDriverWait(self.browser, 5).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, ".modal-content")))
+        if not ContactPage(self.browser).is_open:
+            raise "page is not open"
 
     @property 
     def about_us_button(self):
@@ -25,8 +30,8 @@ class Navbar(BasePage):
     
     def open_about_us(self):
         self.about_us_button.click()
-        WebDriverWait(self.browser, 5).until(
-            EC.visibility_of_element_located((By.CLASS_NAME, "modal-content")))
+        if not AboutUs(self.browser).is_open:
+            raise "page is not open"
     
     @property
     def cart_button(self):
@@ -38,8 +43,8 @@ class Navbar(BasePage):
     
     def open_login(self):
         self.login_button.click()
-        WebDriverWait(self.browser, 5).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, ".modal-content")))
+        if not LoginPage(self.browser).is_open:
+            raise "page is not open"
     
     @property 
     def signup_button(self):
@@ -47,7 +52,7 @@ class Navbar(BasePage):
     
     def open_signup(self):
         self.signup_button.click()
-        WebDriverWait(self.browser, 5).until(
-            EC.visibility_of_element_located((By.CLASS_NAME, "modal-content")))
+        if not SignUpPage(self.browser).is_open:
+            raise "page is not open"
 
     

@@ -11,6 +11,13 @@ from pages.sign_up import SignUpPage
 class DemoBlaze():
     def __init__(self, browser) -> None:
         self.browser = browser
+
+    @property
+    def alert(self):
+        return self.main_page.alert
+
+    def quit(self):
+        self.browser.quit()
     
     @property 
     def about_us(self):
