@@ -1,10 +1,6 @@
-import base64
 import time
 import pytest
-import requests
 from api.user_api import UserApi
-
-from helpers.b64helper import convert_to_b64
 
 
 @pytest.mark.parametrize('login,password', [
